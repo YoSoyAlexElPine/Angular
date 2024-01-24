@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "whatsapp-116d0": {
+      "hosting": {
+        "whatsapp": [
+          "whatsapp-116d0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "whatsapp-116d0"
+  }
+}

@@ -1,16 +1,33 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./COMPONENTS/footer/footer.component";
-import { HeaderComponent } from "./COMPONENTS/header/header.component";
+import { HomeComponent } from "./COMPONENTS/home/home.component";
+import { CestaComponent } from "./COMPONENTS/cesta/cesta.component";
+import { LoginComponent } from "./COMPONENTS/login/login.component";
+import { UserService } from './user.service';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent]
+    imports: [CommonModule, RouterOutlet, FooterComponent, HomeComponent, CestaComponent, LoginComponent]
 })
 export class AppComponent {
-  title = 'Tienda';
+
+  botonLogin:String = "Iniciar sesion";
+  mostrarComponente1 = true;
+
+  cambiarComponente() {
+    this.mostrarComponente1 = !this.mostrarComponente1;
+    
+    if (this.botonLogin == "Iniciar sesion"){
+      this.botonLogin = "Home"
+    } else {
+      this.botonLogin = "Iniciar sesion"
+    }
+    
+
+  }
 }
