@@ -1,0 +1,62 @@
+<div class="product" [attr.units-aviable]="product.uniAviable">
+    
+    <!--<div class="product--image">
+        <img 
+        [src]="product.image"
+        [alt]="product.name">
+    </div>-->
+
+
+    <div class="product--image">
+        <img 
+        (mouseenter)="OnMouseEnter()"
+        (mouseleave)="OnMouseLeave()"
+        [attr.src]="product.image"
+        [alt]="product.name"
+        [style]="productImageStyle"
+        >
+    </div>
+
+    <div class="product--info">
+        <h1 class="product--image__title">{{product.name}}</h1>
+        <p class="product--info__description">{{ product.description }}</p>
+    </div>
+    <div class="product--action">
+        <button 
+        [disabled]="!(product.uniAviable > 1)" 
+        (click)="buyProduct()"
+        class="product--action__btn buy">Buy
+        </button>
+
+        <button 
+        (click)="addToCart()"
+        class="product--action__btn add">+ Card</button>
+    </div>
+</div>
+
+<form 
+[style.display]="!formState ? 'none': 'flex'"
+class="form">
+    <h2>Datos de compra</h2>
+
+    <label for="address">Direccion</label>
+    <input 
+    [(ngModel)]="address"
+    type="text" 
+    name="address" 
+    id="address">
+
+    <label for="postalCode">Postal code</label>
+    <input 
+    [(ngModel)]="postalCode"
+    type="number" 
+    name="postalCode" 
+    id="postalCode">
+    
+    
+    <div>
+        <button (click)="orderProduct()">Order</button>
+    </div>
+</form>
+
+
